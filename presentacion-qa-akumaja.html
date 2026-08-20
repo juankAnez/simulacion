@@ -110,6 +110,17 @@
   .bar-fill{height:100%;border-radius:999px;width:0;transition:width 1.2s cubic-bezier(.22,1,.36,1)}
   .bar-row .cnt{font-weight:800;font-size:.9rem}
 
+  .tbl-wrap{overflow-x:auto}
+  .tbl{width:100%;border-collapse:collapse;font-size:.84rem}
+  .tbl th{text-align:left;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:8px 12px;border-bottom:2px solid var(--line)}
+  .tbl td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+  .tbl tbody tr:hover{background:#f7f8ff}
+  .tbl .cid{font-weight:800;color:var(--primary);white-space:nowrap}
+  .tbl .cat{font-size:.76rem;font-weight:700;color:var(--muted);background:#f1f4fb;padding:4px 10px;border-radius:999px;white-space:nowrap}
+  .cat-legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .cat-legend span{background:#f6f8ff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:.76rem;font-weight:600;color:var(--muted)}
+  .cat-legend b{color:var(--primary);font-weight:800;margin-left:4px}
+
   .rec{display:flex;gap:16px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px 22px;transition:.3s}
   .rec:hover{transform:translateX(6px);box-shadow:var(--shadow)}
   .rec .n{min-width:36px;height:36px;border-radius:10px;background:var(--primary);color:#fff;font-weight:800;display:grid;place-items:center;font-size:.9rem}
@@ -136,6 +147,9 @@
     .finding .sev{justify-self:start}
     .dots{right:8px}.dot{width:10px;height:10px}
     .bar-row{grid-template-columns:92px 1fr 26px}
+    .tbl{font-size:.72rem}
+    .tbl th,.tbl td{padding:7px 8px}
+    .tbl .cid{font-size:.68rem}
     .slide{padding:70px 18px}
   }
 </style>
@@ -308,17 +322,37 @@
         <div class="stat reveal d4"><div class="val" style="color:var(--violet)" data-count="3">0</div><div class="lbl">Observaciones</div></div>
       </div>
       <div class="panel reveal d2">
-        <h3 style="margin-bottom:16px">Hallazgos por categoría</h3>
-        <div class="bars">
-          <div class="bar-row"><span class="name">Funcionalidad</span><div class="bar-track"><div class="bar-fill" style="background:var(--amber)" data-w="50"></div></div><span class="cnt">2</span></div>
-          <div class="bar-row"><span class="name">Navegación</span><div class="bar-track"><div class="bar-fill" style="background:var(--amber)" data-w="25"></div></div><span class="cnt">1</span></div>
-          <div class="bar-row"><span class="name">Experiencia UX</span><div class="bar-track"><div class="bar-fill" style="background:var(--amber)" data-w="25"></div></div><span class="cnt">1</span></div>
-          <div class="bar-row"><span class="name">UI / Diseño</span><div class="bar-track"><div class="bar-fill" style="background:var(--green)" data-w="25"></div></div><span class="cnt">1</span></div>
-          <div class="bar-row"><span class="name">Contenido</span><div class="bar-track"><div class="bar-fill" style="background:var(--violet)" data-w="25"></div></div><span class="cnt">1</span></div>
-          <div class="bar-row"><span class="name">Errores / mensajes</span><div class="bar-track"><div class="bar-fill" style="background:var(--amber)" data-w="25"></div></div><span class="cnt">1</span></div>
-          <div class="bar-row"><span class="name">Responsive</span><div class="bar-track"><div class="bar-fill" style="background:var(--amber)" data-w="50"></div></div><span class="cnt">2</span></div>
-          <div class="bar-row"><span class="name">Rendimiento</span><div class="bar-track"><div class="bar-fill" style="background:var(--violet)" data-w="25"></div></div><span class="cnt">1</span></div>
-          <div class="bar-row"><span class="name">Accesibilidad</span><div class="bar-track"><div class="bar-fill" style="background:var(--green)" data-w="25"></div></div><span class="cnt">1</span></div>
+        <h3 style="margin-bottom:14px">Desglose detallado de los 11 hallazgos</h3>
+        <div class="tbl-wrap">
+        <table class="tbl">
+          <thead>
+            <tr><th>ID</th><th>Hallazgo detectado</th><th>Categoría</th><th>Severidad</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="cid">QA-001</td><td>Sin notificaciones de actividades pendientes</td><td><span class="cat">Funcionalidad</span></td><td><span class="sev media"><span class="punto"></span>Media</span></td></tr>
+            <tr><td class="cid">QA-006</td><td>Sin avisos de vencimiento de actividades</td><td><span class="cat">Funcionalidad</span></td><td><span class="sev media"><span class="punto"></span>Media</span></td></tr>
+            <tr><td class="cid">QA-002</td><td>Navegación poco intuitiva</td><td><span class="cat">Navegación</span></td><td><span class="sev media"><span class="punto"></span>Media</span></td></tr>
+            <tr><td class="cid">QA-003</td><td>Sin vista rápida de pendientes</td><td><span class="cat">Experiencia UX</span></td><td><span class="sev media"><span class="punto"></span>Media</span></td></tr>
+            <tr><td class="cid">QA-007</td><td>Error al registrar una entrega</td><td><span class="cat">Errores / mensajes</span></td><td><span class="sev media"><span class="punto"></span>Media</span></td></tr>
+            <tr><td class="cid">QA-004</td><td>Falta de uniformidad visual</td><td><span class="cat">UI / Diseño</span></td><td><span class="sev baja"><span class="punto"></span>Baja</span></td></tr>
+            <tr><td class="cid">QA-008</td><td>Carga lenta de la página de cursos</td><td><span class="cat">Rendimiento</span></td><td><span class="sev baja"><span class="punto"></span>Baja</span></td></tr>
+            <tr><td class="cid">QA-009</td><td>Menú cortado en pantallas pequeñas</td><td><span class="cat">Responsive</span></td><td><span class="sev baja"><span class="punto"></span>Baja</span></td></tr>
+            <tr><td class="cid">QA-005</td><td>Instrucciones variables según docente</td><td><span class="cat">Contenido</span></td><td><span class="sev obs"><span class="punto"></span>Observación</span></td></tr>
+            <tr><td class="cid">QA-010</td><td>Tablas desbordadas en tablet</td><td><span class="cat">Responsive</span></td><td><span class="sev obs"><span class="punto"></span>Observación</span></td></tr>
+            <tr><td class="cid">QA-011</td><td>Imágenes sin texto alternativo</td><td><span class="cat">Accesibilidad</span></td><td><span class="sev obs"><span class="punto"></span>Observación</span></td></tr>
+          </tbody>
+        </table>
+        </div>
+        <div class="cat-legend">
+          <span>Funcionalidad <b>2</b></span>
+          <span>Navegación <b>1</b></span>
+          <span>Experiencia UX <b>1</b></span>
+          <span>UI / Diseño <b>1</b></span>
+          <span>Contenido <b>1</b></span>
+          <span>Errores / mensajes <b>1</b></span>
+          <span>Responsive <b>2</b></span>
+          <span>Rendimiento <b>1</b></span>
+          <span>Accesibilidad <b>1</b></span>
         </div>
       </div>
     </div>
