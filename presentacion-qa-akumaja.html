@@ -132,6 +132,11 @@
   .concl p{display:flex;gap:12px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 20px;font-size:.95rem;line-height:1.5}
   .concl p b{color:var(--primary)}
 
+  .verdict{background:linear-gradient(135deg,rgba(91,91,214,.08),rgba(124,58,237,.08));border:1px solid rgba(91,91,214,.3);border-left:5px solid var(--primary);border-radius:16px;padding:22px 26px;margin-top:22px}
+  .verdict-tag{display:inline-block;background:var(--primary);color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:999px;margin-bottom:12px}
+  .verdict p{font-size:1rem;line-height:1.7;color:var(--ink)}
+  .verdict p b{color:var(--primary)}
+
   .gallery{display:grid;grid-template-columns:minmax(240px,420px);gap:18px;margin-top:20px}
   .gallery .figure img{max-height:38vh}
 
@@ -384,6 +389,10 @@
         <p class="reveal d1"><b>Sin bloqueos críticos:</b> no se detectaron hallazgos de severidad alta; la plataforma es utilizable en su estado actual.</p>
         <p class="reveal d2"><b>El foco: notificaciones:</b> la ausencia de alertas sobre actividades pendientes y vencimientos es el principal punto a mejorar.</p>
         <p class="reveal d3"><b>Movilidad pendiente:</b> conviene mejorar la experiencia móvil y tablet, donde los estudiantes consultan sus cursos con mayor frecuencia.</p>
+      </div>
+      <div class="verdict reveal d3">
+        <span class="verdict-tag">Conclusión final</span>
+        <p>La plataforma <b>cumple su función y puede seguir en uso</b>, pero <b>no aprovecha su potencial</b>: los 11 hallazgos (5 de severidad media, 3 baja y 3 observaciones) son mejoras correctivas, no fallas que impidan operar. La prioridad inmediata es implementar <b>avisos de actividades pendientes y vencimientos</b>; en una segunda etapa, pulir navegación, uniformidad visual y experiencia móvil. Con esos ajustes, la experiencia del estudiante pasaría de <b>funcional</b> a <b>eficiente</b>.</p>
       </div>
       <div class="gallery reveal d3">
         <div class="figure">
